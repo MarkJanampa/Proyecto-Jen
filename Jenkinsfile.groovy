@@ -7,7 +7,7 @@ pipeline
             steps {
                 script {
                     // Construir la imagen de Centos
-                    docker.build('my-centos', '-f https://github.com/MarkJanampa/Proyecto-Jen.git')
+                    docker.build('my-centos', '-f https://github.com/MarkJanampa/Proyecto-Jen.git/Dockerfile .')
                 }
             }
         }
