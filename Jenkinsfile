@@ -5,14 +5,8 @@ pipeline {
         stage('Build') {
             steps {
                 script {
-                    // Clonar el repositorio desde GitHub
-                    sh 'git clone https://github.com/MarkJanampa/Proyecto-Jen.git'
-                    
-                    // Mover al directorio del repositorio
-                    sh 'cd Proyecto-Jen'
-                    
-                    // Construir la imagen de Centos
-                    sh 'docker build -t my-centos -f Dockerfile .'
+                    // Construir la imagen de Docker
+                    docker.build('my-centos', '-f /Users/mjanampa/Documents/Centos-Docker/Proyecto-Jen/Dockerfile .')
                 }
             }
         }
