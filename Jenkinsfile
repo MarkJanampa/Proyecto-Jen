@@ -1,13 +1,18 @@
-pipeline 
-{
+pipeline {
     agent any
 
     stages {
         stage('Build') {
             steps {
                 script {
+                    // Clonar el repositorio desde GitHub
+                    sh 'git clone https://github.com/MarkJanampa/Proyecto-Jen.git'
+                    
+                    // Mover al directorio del repositorio
+                    sh 'cd Proyecto-Jen'
+                    
                     // Construir la imagen de Centos
-                    docker.build('my-centos', '-f https://github.com/MarkJanampa/Proyecto-Jen.git/Dockerfile .')
+                    sh 'docker build -t my-centos -f Dockerfile .'
                 }
             }
         }
@@ -15,7 +20,7 @@ pipeline
             steps {
                 script {
                     // Ejecutar Centos
-                    docker.image('my-centos').run('-it --rm --privileged=true --name ProjectC -p 8080:80 -v C:/Users/mjanampa/Documents/Centos-Docker/Centos-Apache/web:/var/linuxVolumen')
+                    sh 'docker run -it --rm --privileged=true --name ProjectC -p 8080:80 -v C:/Users/mjanampa/Documents/Centos-Docker/Centos-Apache/web:/var/linuxVolumen my-centos'
                 }
             }
         }
