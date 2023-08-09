@@ -13,8 +13,8 @@ pipeline {
         stage('Run') {
             steps {
                 script {
-                    // Ejecutar Centos
-                    sh 'docker run -it --rm --privileged=true --name ProjectC -p 8080:80 -v C:/Users/mjanampa/Documents/Centos-Docker/Centos-Apache/web:/var/linuxVolumen my-centos'
+                    // Ejecutar Centos y crear un volumen
+                    docker.image('my-centos').run('-it --rm --privileged=true --name ProjectC -p 8080:80 -v C:/Users/mjanampa/Documents/Centos-Docker/web:/var/linuxVolumen ')
                 }
             }
         }
