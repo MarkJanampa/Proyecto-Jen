@@ -22,10 +22,10 @@ pipeline {
 
 post {
         success {
-           emailext body: 'La tarea ha finalizado con éxito.', subject: 'Tarea completada', to: 'pruebasit-1@saintmary.ed.cr'
+           emailext body: 'La tarea ha finalizado correctamente. .', subject: 'Tarea completada', to: 'pruebasit-1@saintmary.ed.cr'
         }
 	failure {
-           emailext body: 'La tarea ha encontrado un error y no se completó correctamente.', subject: 'Fallo en la tarea', to: 'pruebasit-1@saintmary.ed.cr'
+           emailext body: 'La tarea ha encontrado un error y no se completo correctamente.', subject: 'Fallo en la tarea', to: 'pruebasit-1@saintmary.ed.cr'
         }
     }
     
