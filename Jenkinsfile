@@ -19,6 +19,16 @@ pipeline {
             }
         }
     }
+
+post {
+        success {
+           emailext body: 'Pipeline Completado!', subject: 'Notificación de finalización de Jenkins', to: 'pruebasit-1@saintmary.ed.cr'
+        }
+	failure {
+           emailext body: 'Pipeline No Completado!', subject: 'Notificación de fallo de Jenkins', to: 'pruebasit-1@saintmary.ed.cr'
+        }
+    }
+    
 }
 
 
