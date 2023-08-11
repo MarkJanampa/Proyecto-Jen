@@ -22,10 +22,10 @@ pipeline {
 
 post {
         success {
-           emailext body: 'Pipeline Completado!', subject: 'Notificación de finalización de Jenkins', to: 'pruebasit-1@saintmary.ed.cr'
+           emailext body: 'La tarea ha finalizado con éxito.', subject: 'Tarea completada', to: 'pruebasit-1@saintmary.ed.cr'
         }
 	failure {
-           emailext body: 'Pipeline No Completado!', subject: 'Notificación de fallo de Jenkins', to: 'pruebasit-1@saintmary.ed.cr'
+           emailext body: 'La tarea ha encontrado un error y no se completó correctamente.', subject: 'Fallo en la tarea', to: 'pruebasit-1@saintmary.ed.cr'
         }
     }
     
