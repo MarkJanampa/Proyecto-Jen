@@ -3,8 +3,8 @@ FROM centos:centos7
 
 # Actualizamos los paquetes en la imagen
 RUN yum -y update && \
-    yum -y install httpd && \
     yum clean all && \
+    yum -y install httpd && \
     systemctl enable httpd.service
 
 # Ejecutamos el inicio del contenedor
